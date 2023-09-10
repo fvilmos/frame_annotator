@@ -1,0 +1,24 @@
+{
+    "//1": "BASE_PATH - root of all data augmentation activity",
+    "//2": "SOURCE - accepts .png images with alpha channel",
+    "//3": "OUT_PATH - defines whre to store the data",
+    "//4": "BACKGROUND_PATH - location to store random images that will be used as background",
+    "//5": "OUT_IMG_SIZE - if is None by default the original image size will be taken, if is a list i.e. [256,256] the image will be resized",
+    "//6": "OUT_FILE_EXTENSION - output files extension i.e. .png or .jpg",
+    "//7": "NR_OF_BACKGROUNDS_TO_USE - define the number of backgoround images will be used with a label image",
+    "//8": "RANDOM_OBJECT_PLACEMENT, if ingeger = 1 uses random location, if =0 image middle, if list use as coordinates i.e. [50,80]",
+    "//9": "SIZE_TRANSFORM_PERCENT - defines the label image scale. List indicates has the alloved factors. i.e. 0.8 => original label image is 20% smaller",
+    "//10":"LABEL - is the name of the object used as label. i.e. car",
+    
+    "BASE_PATH":".\\data\\",
+    "SOURCE":"out\\",
+    "OUT_PATH": "training_samples\\",
+    "BACKGROUND_PATH": "background\\",
+    "OUT_IMG_SIZE":"None",
+    "OUT_FILE_EXTENSION": ".png",
+    "NR_OF_BACKGROUNDS_TO_USE": 10,
+    "RANDOM_OBJECT_PLACEMENT":1,
+    "SIZE_TRANSFORM_PERCENT": [1.0,0.7,1.2,0.9],
+    "LABEL": "hand"
+
+}

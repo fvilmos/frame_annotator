@@ -1,0 +1,27 @@
+{
+    
+    "//1":"MODEL_PATH_MSAM - location to store weights for mobil SAM",
+    "//2": "BASE_PATH - root of all data augmentation activity",
+    "//3": "SOURCE - accepts int values = camera index (integer) or string *.mp4 for local videos. if .jpg or .png is used images are loaded. See ACCEPTED_IMAGE_TYPES",
+    "//4": "OUT_PATH - defines whre to store the segmented image",
+    "//5": "if there are many videos to read out, use the FILE_INDEX to select the desired file.",
+    "//6": "if OUT_IMG_SIZE is missing i.e. None or [256,256], by default the original image size will be taken",
+    "//7": "OUT_FILE_EXTENSION - output files extension i.e. .png",
+    "//8": "use WRITE_TYPE to define how to store the processed data.  0 - just visualize, 1 - write just the region of interest in a file, 2-write full frame with mask",
+    "//9": "ACCEPTED_IMAGE_TYPES - list of accepted input formats for images, do not modify",
+    "//10": "FORCE_CPU - will force torch to run the model on CPU=1...for the PCs with no GPU",
+    "//11": "WORK_IMG_SIZE_HW - a list of H,W - defineing the work image size, or a integer defineing the reduction factor. i.e. 2 => size will be half",
+
+    "MODEL_PATH_MSAM": "weights\\mobile_SAM.pt",
+    "BASE_PATH":".\\data\\",
+    "SOURCE":"*.mp4",
+    "OUT_PATH": "out\\",
+    "FILE_INDEX":0, 
+    "OUT_IMG_SIZE":"None",
+    "OUT_FILE_EXTENSION": ".png",
+    "WRITE_TYPE": 1,
+    "ACCEPTED_IMAGE_TYPES": [".jpg",".png"],
+    "FORCE_CPU": 0,
+    "WORK_IMG_SIZE_HW":1
+
+}
