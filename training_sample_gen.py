@@ -32,6 +32,10 @@ sdata = np.array(object_list)
 print ("background img list:", len(background_list))
 print ("sample img list:", len(object_list))
 
+if (len(background_list)== 0) or (len(object_list) == 0):
+    print ("Check input directories for data!", backgrounds, samples)
+    exit(0)
+
 # create folders to store data
 def create_unique_folder():
     now = datetime.now()
@@ -91,8 +95,12 @@ for s in sdata:
         if isinstance(cfg_data["RANDOM_OBJECT_PLACEMENT"], int) == True:
             if isinstance(cfg_data["RANDOM_OBJECT_PLACEMENT"], int) == 1:
                 # generate on random position
-                x = np.random.randint(0,bgi_shape[1]-w)
-                y = np.random.randint(0,bgi_shape[0]-h)
+                try:
+                    x = np.random.randint(0,bgi_shape[1]-w)
+                    y = np.random.randint(0,bgi_shape[0]-h)
+                except:
+                    print ("Background size issue (too small)! Use OUT_IMG_SIZE, to reshape it first!")
+                    exit(0)
             else:
                 x = w//2
                 y = h//2
@@ -106,7 +114,7 @@ for s in sdata:
         # constract the dict to be saved
         data_dict['orig_img_shape'] = img_bgi.shape
         data_dict['work_img_shape'] = img_bgi.shape
-        data_dict['file'] = str(count) +"_"+ str(id) + str(".png")
+        data_dict['file'] = str(count) +"_"+ str(id) + str(cfg_data["OUT_FILE_EXTENSION"])
   
         # overlay object on the background
         size = np.random.uniform(low=1-size_transform_percent,high=1+size_transform_percent)
